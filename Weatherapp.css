@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom: 0%;
+  left: -50%;
+  opacity: 0.5;
+  position: fixed;
+  right: -50%;
+  top: 0%;
+  z-index: -1;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+.content {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0.25em;
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  left: 50%;
+  padding: 10vmin;
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 90%;
+}
+
+/* css for entire white box*/
+.contentBox {
+  padding: 15px;
+  margin-top: 10px;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}
+
+.general-information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.status {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.location {
+  font-size: 25px;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+.detail-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.detail {
+  display: flex;
+  display: inline;
+  flex-direction: column;
+  align-content: center;
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.detail .title {
+  font-size: 20px;
+  flex-grow: 1;
+  font-weight: bold;
+  color: mediumturquoise;
+}
+
+.detail .value {
+  font-size: 20px;
+  margin-top: 8px;
+  animation: fadeIn linear 3s;
+  -webkit-animation: fadeIn linear 3s;
+  -moz-animation: fadeIn linear 3s;
+  -o-animation: fadeIn linear 3s;
+  -ms-animation: fadeIn linear 3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.detail.bordered {
+  border-left: 1px solid #777;
+  border-right: 1px solid #777;
+}
+
+.city-search {
+  margin-top: 10px;
+  font-size: 10px;
+  outline: none;
+  border: 3px solid rgb(96, 231, 139);
+  border-radius: 5px;
+  padding: 10px 15px;
+  width: 100%;
+  background-color: rgb(93, 189, 252);
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+.changeColor {
+  font-size: 20px;
+  color: black;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.changeColor.on {
+  font-size: 20px;
+  color: black;
+  border-radius: 5px;
+  background-color: red;
+}
+
+.input {
+  text-align: center;
+  margin: 100px, 0px;
+}
+
+input[type="text"] {
+  height: 50px;
+  width: 300px;
+  background-color: lightblue;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  border-color: black;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+input[type="text"]:hover {
+  background-color: #7eb3cd;
+}
+
+input[type="submit"] {
+  height: 50px;
+  width: 50px;
+  border-radius: 7px;
+  border-color: black;
+  background-color: rgb(138, 244, 86);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px rgb(54, 52, 52);
+}
+
+input[type="submit"]:hover {
+  background-color: #3db942;
+}
+
+input[type="submit"]:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+}
+
+.display {
+  text-align: center;
+}
+
+.appTitle {
+  color: black;
+  font-size: 30px;
+  text-align: center;
+}

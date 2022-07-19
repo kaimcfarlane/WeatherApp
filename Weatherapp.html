@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Practice js</title>
+    <script src="Weatherapp.js" defer></script>
+    <link
+    href="Weatherapp.css"
+    rel="stylesheet"
+    type="text/css"
+    media="all"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+ </head>
+ <body>
+    <section>
+        <h1 class="appTitle">
+            Weather App
+        </h1>
+        <div class="input">
+            <input type="text" class="inputValue" placeholder="Enter a city">
+            <input type="submit" value="submit" class="cityButton">
+        </div>
+        <div class="display">
+            <h1 class="name"></h1>
+            <ul>
+                <li class='desc'></li>
+                <li class="temp"></li>
+                <li class="type"></li>
+                <li class="pressure"></li>
+                <li class="coordinates"></li>
+            </ul>
+        </div>
+        <div id="stats">
+            <input type="text"  class="longitude"  placeholder="type in longitude">
+            <input type="text"  class="latitude"  placeholder="type in latitude">
+            <input type="submit" value="Show on Map" class="statsButton">
+
+        </div>
+        <div id="map"></div>
+    </section>
+     </body>
