@@ -6,6 +6,8 @@ const forecastElement = document.querySelector('[data-forecast]')
 const humidityElement = document.querySelector('[data-humidity]')
 const preciElement = document.querySelector('[data-preci]')
 var title = document.getElementById("title");
+var body = document.getElementsByTagName("body");
+const desktopPics = ['hillyDay1.jpg', 'hillyDay2.jpg', 'hillyDay3.jpg', 'lifeSunny1.jpg', 'lifeSunny2.jpg', 'sunnyHilly5.jpg'];
 
 
 
@@ -58,6 +60,23 @@ setInterval(()=>{
     title.innerText = dateTime;
 
 },1000);
+
+// body.style.backgroundImage 
+var slideIndex = 0;
+
+
+// setInterval(
+// function slideShow(){
+//     if(slideIndex > desktopPics.length)
+//     {
+//         slideIndex = 0;
+//     }
+
+//     var img = "url(" + desktopPics[slideIndex] + ")";
+//     document.body.style.backgroundImage = img;
+//     slideIndex++;
+// }, 8000);
+
 
 
 
