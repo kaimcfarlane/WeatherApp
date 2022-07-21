@@ -98,12 +98,31 @@ body {
   cursor: pointer;
 }
 
-#weatherInfo {
-  color: #c9c9c9;
-  /* margin-top: 245px;
-  margin-right: 422px; */
-  background-color: #000;
+#location,
+#icon,
+#time,
+#report {
+  font-size: 25px;
+}
 
+#temperature,
+#icon,
+#time {
+  margin: 0 20px;
+}
+
+#temperature {
+  font-size: 100px;
+}
+
+p {
+  margin: 0;
+}
+
+#weatherInfo {
+  margin-top: 191px;
+  color: #ffffff;
+  /* background-color: #000; */
   position: absolute;
   /* top: 0; */
   left: 0;
@@ -111,21 +130,17 @@ body {
   /* height: 100%; */
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: column;
-  padding: 2em 3em 4em 3em;
+  padding: 2em 3em 1em 0em;
+  align-content: center;
+  align-items: center;
 }
 
 #weatherInfo div {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-#temperature,
-#icon,
-#time {
-  margin: 0 1em;
+  flex-direction: column;
+  /* margin-bottom: -3px; */
 }
 
 /* .city-search {

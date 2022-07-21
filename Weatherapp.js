@@ -6,6 +6,9 @@ const forecastElement = document.querySelector('[data-forecast]')
 const humidityElement = document.querySelector('[data-humidity]')
 const preciElement = document.querySelector('[data-preci]')
 
+
+var timeText = document.getElementById("time");
+var report = document.getElementById("report");
 var location1 = document.getElementById("location");
 var temp = document.getElementById("temperature");
 var title = document.getElementById("title");
@@ -45,10 +48,17 @@ function search() {
 
     //for some reason its outputting to console but not our text below
 
-    
+    var today= new Date();
+    var shortTime = today.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     console.log("The location is" + data["name"]);
     location1.innerText = data["name"];
     temp.innerText = tempValueConvert;
+    report.innerText = data["weather"][0]["description"];
+    if(shortTime.substr(0,1)=="0")
+    {
+        shortTime = shortTime.substr(1,shortTime.length);  
+    }
+    time.innerText = shortTime;
     // statusElement.textContent = data["weather"][0]["description"];
     // temperatureElement.textContent = tempValueConvert;
     // locationElement.textContent = data["name"];
@@ -59,6 +69,10 @@ function search() {
 
     .catch(err => console.log(err));
 }
+
+
+
+
 
 setInterval(()=>{
     var today= new Date();
