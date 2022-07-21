@@ -5,6 +5,9 @@ const temperatureElement = document.querySelector('[data-temperature]')
 const forecastElement = document.querySelector('[data-forecast]')
 const humidityElement = document.querySelector('[data-humidity]')
 const preciElement = document.querySelector('[data-preci]')
+
+var location1 = document.getElementById("location");
+var temp = document.getElementById("temperature");
 var title = document.getElementById("title");
 var body = document.getElementsByTagName("body");
 const desktopPics = ['hillyDay1.jpg', 'hillyDay2.jpg', 'hillyDay3.jpg', 'lifeSunny1.jpg', 'lifeSunny2.jpg', 'sunnyHilly5.jpg'];
@@ -37,14 +40,20 @@ function search() {
     
     let tempValue = data["main"]["temp"];
     let tempValueConvert = Math.round((tempValue - 273.15) * 9/5 + 32) + "° F"; 
-    
+    console.log(tempValueConvert);
     console.log(data);
 
-    locationElement.textContent = data["name"];
-    statusElement.textContent = data["weather"][0]["description"];
-    temperatureElement.textContent = tempValueConvert;
-    preciElement.textContent =  formattedTime + " (h, m, s)";
-    humidityElement.textContent = data["main"]["humidity"] + '%';
+    //for some reason its outputting to console but not our text below
+
+    
+    console.log("The location is" + data["name"]);
+    location1.innerText = data["name"];
+    temp.innerText = tempValueConvert;
+    // statusElement.textContent = data["weather"][0]["description"];
+    // temperatureElement.textContent = tempValueConvert;
+    // locationElement.textContent = data["name"];
+    // preciElement.textContent =  formattedTime + " (h, m, s)";
+    // humidityElement.textContent = data["main"]["humidity"] + '%';
 
     })
 
@@ -56,7 +65,7 @@ setInterval(()=>{
     // today.setHours(today.getHours() + 1);s
     var dateTime = today.toLocaleString();
     var time = today.toLocaleTimeString();
-    console.log(time);
+    // console.log(time);
     title.innerText = dateTime;
 
 },1000);

@@ -98,6 +98,36 @@ body {
   cursor: pointer;
 }
 
+#weatherInfo {
+  color: #c9c9c9;
+  /* margin-top: 245px;
+  margin-right: 422px; */
+  background-color: #000;
+
+  position: absolute;
+  /* top: 0; */
+  left: 0;
+  /* width: 100%; */
+  /* height: 100%; */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 2em 3em 4em 3em;
+}
+
+#weatherInfo div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#temperature,
+#icon,
+#time {
+  margin: 0 1em;
+}
+
 /* .city-search {
   font-size: 10px;
   outline: none;
