@@ -16,7 +16,7 @@ var temp = document.getElementById("temperature");
 var title = document.getElementById("title");
 var body = document.getElementsByTagName("body");
 const desktopPics = ['hillyDay1.jpg', 'hillyDay2.jpg', 'hillyDay3.jpg', 'lifeSunny1.jpg', 'lifeSunny2.jpg', 'sunnyHilly5.jpg'];
-const imgUrl = ['cloudyMoon.png', 'cloud.png', 'thunderstormIcon.png', 'snowIcon.png', 'nightFog.png', 'dayFog.png'];
+const imgUrl = ['cloudyMoon.png', 'cloud.png', 'thunderstormIcon.png', 'snowIcon.png', 'nightFog.png', 'dayFog.png', 'dayDrizzle.png', 'nightDrizzle.png', 'dayRain.png', 'nightRain.png', 'dayClear.png', 'nightClear.png', 'dayClouds.png'];
 
 
 const cityButton = document.querySelector(".cityButton")
@@ -78,45 +78,65 @@ function search() {
     {
         isDay = false;
     }
-    console.log(parseInt(shortTime.substr(0,2)) + shortTime.substr(5,7) + " " + isDay);
+    
 
     hour = shortTime
     var main = data["weather"][0]["main"];
     var imgIndex = 0;
+
+    console.log(parseInt(shortTime.substr(0,2)) + shortTime.substr(5,7) + " " + isDay + " " + main);
     
     
     if(main == "Thunderstorm")
     {
         imgIndex = 2;
     }
-    else if(main == "Drizzle")
+    else if(main == "Drizzle" && !isDay)
     {
-        imgIndex = "";
+        imgIndex = 7;
     }
-    else if(main == "Rain")
+    else if(main == "Drizzle" && isDay)
     {
-        imgIndex = "";
+        imgIndex = 6;
+    }
+    else if(main == "Rain" && !isDay)
+    {
+        imgIndex = 9;
+    }
+    else if(main == "Rain" && isDay)
+    {
+        imgIndex = 8;
     }
     else if(main == "Snow")
     {
         imgIndex = 3;
     }
-    else if(main == "Atmosphere" && !isDay)
+    else if(main == "Mist" && !isDay)
     {
         imgIndex = 4;
     }
-    else if(main == "Atmosphere" && isDay)
+    else if((main == "Mist" || "Smoke" || "Haze" || "Dust" || "Fog" || "Sand" || "Ash" || "Squall" || "Tornado") && isDay)
     {
         imgIndex = 5;
     }
-    else if(main == "Clear")
+    else if((main == "Mist" || "Smoke" || "Haze" || "Dust" || "Fog" || "Sand" || "Ash" || "Squall" || "Tornado") && !isDay)
     {
-        imgIndex = "";
+        imgIndex = 11;
+    }
+    else if(main == "Clear" && isDay)
+    {
+        imgIndex = 10;
     }
     else if(main == "Clouds" && !isDay)
     {
         imgIndex = 1;
     }
+    else if(main == "Clouds" && isDay)
+    {
+        imgIndex = 12;
+    }
+    console.log(imgIndex);
+    var x = 5;
     inconHtml.innerHTML = "<img id='iconPic' alt='' src='" + imgUrl[imgIndex] + "'>";
 
     weatherInfo.style.display = "flex";
