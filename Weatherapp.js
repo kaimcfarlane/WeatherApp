@@ -7,14 +7,16 @@ const humidityElement = document.querySelector('[data-humidity]')
 const preciElement = document.querySelector('[data-preci]')
 
 
+var weatherInfo = document.getElementById("weatherInfo");
 var timeText = document.getElementById("time");
+var inconHtml = document.getElementById("icon");
 var report = document.getElementById("report");
 var location1 = document.getElementById("location");
 var temp = document.getElementById("temperature");
 var title = document.getElementById("title");
 var body = document.getElementsByTagName("body");
 const desktopPics = ['hillyDay1.jpg', 'hillyDay2.jpg', 'hillyDay3.jpg', 'lifeSunny1.jpg', 'lifeSunny2.jpg', 'sunnyHilly5.jpg'];
-
+const imgUrl = ['cloudyMoon.png', 'cloud.png', 'thunderstormIcon.png', 'snowIcon.png', 'nightFog.png', 'dayFog.png'];
 
 
 const cityButton = document.querySelector(".cityButton")
@@ -46,6 +48,12 @@ function search() {
     console.log(tempValueConvert);
     console.log(data);
 
+    
+
+    
+
+    
+
     //for some reason its outputting to console but not our text below
 
     var today= new Date();
@@ -59,6 +67,59 @@ function search() {
         shortTime = shortTime.substr(1,shortTime.length);  
     }
     time.innerText = shortTime;
+
+    
+    var isDay = true;
+    if(parseInt(shortTime.substr(0,2)) < 7 && shortTime.substr(5,7) == "AM")
+    {
+        isDay = false;
+    }
+    else if(parseInt(shortTime.substr(0,2)) > 8 && shortTime.substr(5,7) == "PM")
+    {
+        isDay = false;
+    }
+    console.log(parseInt(shortTime.substr(0,2)) + shortTime.substr(5,7) + " " + isDay);
+
+    hour = shortTime
+    var main = data["weather"][0]["main"];
+    var imgIndex = 0;
+    
+    
+    if(main == "Thunderstorm")
+    {
+        imgIndex = 2;
+    }
+    else if(main == "Drizzle")
+    {
+        imgIndex = "";
+    }
+    else if(main == "Rain")
+    {
+        imgIndex = "";
+    }
+    else if(main == "Snow")
+    {
+        imgIndex = 3;
+    }
+    else if(main == "Atmosphere" && !isDay)
+    {
+        imgIndex = 4;
+    }
+    else if(main == "Atmosphere" && isDay)
+    {
+        imgIndex = 5;
+    }
+    else if(main == "Clear")
+    {
+        imgIndex = "";
+    }
+    else if(main == "Clouds" && !isDay)
+    {
+        imgIndex = 1;
+    }
+    inconHtml.innerHTML = "<img id='iconPic' alt='' src='" + imgUrl[imgIndex] + "'>";
+
+    weatherInfo.style.display = "flex";
     // statusElement.textContent = data["weather"][0]["description"];
     // temperatureElement.textContent = tempValueConvert;
     // locationElement.textContent = data["name"];

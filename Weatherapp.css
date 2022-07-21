@@ -119,6 +119,11 @@ p {
   margin: 0;
 }
 
+#iconPic {
+  width: 50px;
+  height: 50px;
+}
+
 #weatherInfo {
   margin-top: 191px;
   color: #ffffff;
@@ -128,7 +133,8 @@ p {
   left: 0;
   /* width: 100%; */
   /* height: 100%; */
-  display: flex;
+  /* display: flex; */
+  display: none;
   justify-content: space-between;
   padding: 2em 3em 1em 0em;
   align-content: center;
@@ -141,6 +147,21 @@ p {
   align-items: center;
   flex-direction: column;
   /* margin-bottom: -3px; */
+}
+
+#time {
+  padding-top: 10px;
+}
+
+#endInfo {
+  margin-top: -21px;
+}
+
+#icon {
+  /* background-image: url("cloudyMoon.png"); */
+  /* background-image: url("hillyDay2.jpg"); */
+  width: 50px;
+  height: 50px;
 }
 
 /* .city-search {
