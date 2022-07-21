@@ -5,6 +5,7 @@ const temperatureElement = document.querySelector('[data-temperature]')
 const forecastElement = document.querySelector('[data-forecast]')
 const humidityElement = document.querySelector('[data-humidity]')
 const preciElement = document.querySelector('[data-preci]')
+var title = document.getElementById("title");
 
 
 
@@ -47,6 +48,16 @@ function search() {
 
     .catch(err => console.log(err));
 }
+
+setInterval(()=>{
+    var today= new Date();
+    // today.setHours(today.getHours() + 1);s
+    var dateTime = today.toLocaleString();
+    var time = today.toLocaleTimeString();
+    console.log(time);
+    title.innerText = dateTime;
+
+},1000);
 
 
 
