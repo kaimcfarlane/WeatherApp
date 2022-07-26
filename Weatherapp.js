@@ -24,11 +24,13 @@ const cityButton = document.querySelector(".cityButton")
 const bodycolor = document.querySelector(".bodyStyle")
 
 var inputValue = document.querySelector(".searchInput");
-
+var a=0; 
 function search() {
         fetch('https://api.openweathermap.org/data/2.5/weather?q='+ inputValue.value + '&appid=3bd623ddf9f35d70115baebe19399785')
 .then(res => res.json())
 .then(data => {
+
+    
     
     console.log(inputValue.value);
 
@@ -101,6 +103,12 @@ function search() {
 
     console.log(parseInt(shortTime.substr(0,2)) + shortTime.substr(5,7) + " " + isDay + " " + main);
     
+    const dekstopBG = ['cloudyDay2.jpg', 'cloudDay3.jpg', 'cloudDay4.jpg' ]
+    
+    // body.style.animation = "";
+    document.body.style.animation = "l";
+    // document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[3] + '"' + ')';
+
     
     if(main == "Thunderstorm")
     {
@@ -130,14 +138,15 @@ function search() {
     {
         imgIndex = 4;
     }
-    else if((main == "Mist" || "Smoke" || "Haze" || "Dust" || "Fog" || "Sand" || "Ash" || "Squall" || "Tornado") && isDay)
-    {
-        imgIndex = 5;
-    }
-    else if((main == "Mist" || "Smoke" || "Haze" || "Dust" || "Fog" || "Sand" || "Ash" || "Squall" || "Tornado") && !isDay)
-    {
-        imgIndex = 11;
-    }
+    // else if((main == "Mist" || "Smoke" || "Haze" || "Dust" || "Fog" || "Sand" || "Ash" || "Squall" || "Tornado") && isDay)
+    // {
+    //     imgIndex = 5;
+    //     console.log("its here " + main + " " + isDay);
+    // }
+    // else if((main == "Mist" || "Smoke" || "Haze" || "Dust" || "Fog" || "Sand" || "Ash" || "Squall" || "Tornado") && !isDay)
+    // {
+    //     imgIndex = 11;
+    // }
     else if(main == "Clear" && isDay)
     {
         imgIndex = 10;
@@ -145,10 +154,18 @@ function search() {
     else if(main == "Clouds" && !isDay)
     {
         imgIndex = 1;
+        console.log("wow");
     }
     else if(main == "Clouds" && isDay)
     {
         imgIndex = 12;
+        console.log("tired");
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[a] + '"' + ')';
+        a++;
+        if (a>2)
+        {
+            a=0;
+        }
     }
     console.log(imgIndex);
     var x = 5;
