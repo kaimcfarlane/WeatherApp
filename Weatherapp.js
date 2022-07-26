@@ -106,7 +106,7 @@ function search() {
     const dekstopBG = ['cloudyDay2.jpg', 'cloudDay3.jpg', 'cloudDay4.jpg' ]
     
     // body.style.animation = "";
-    document.body.style.animation = "l";
+    // document.body.style.animation = "l";
     // document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[3] + '"' + ')';
 
     
@@ -158,6 +158,7 @@ function search() {
     }
     else if(main == "Clouds" && isDay)
     {
+        document.body.style.animation = "fadeIn 2s";
         imgIndex = 12;
         console.log("tired");
         document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[a] + '"' + ')';
@@ -166,6 +167,9 @@ function search() {
         {
             a=0;
         }
+        setTimeout(() =>{
+            document.body.style.animation = "l";
+        }, 2500);
     }
     console.log(imgIndex);
     var x = 5;
