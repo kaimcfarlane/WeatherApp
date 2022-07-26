@@ -147,6 +147,8 @@ p {
   align-items: center;
   flex-direction: column;
   /* margin-bottom: -3px; */
+
+  margin: 0 9px;
 }
 
 #time {

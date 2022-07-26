@@ -59,14 +59,29 @@ function search() {
     var today= new Date();
     var shortTime = today.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     console.log("The location is" + data["name"]);
-    location1.innerText = data["name"];
+    location1.innerText = data["name"] + ", " + data["sys"]["country"];
+
+    fetch('https://api.ipgeolocation.io/timezone?apiKey=7cf838a077034a07a7f031f906157fce&location=' + inputValue.value +  ',%20' + data["sys"]["country"])
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        var localTime = data["time_12"];
+        localTime = localTime.substr(0,5) + " " + localTime.substr(9,11);
+        console.log(localTime);
+        if(localTime.substr(0,1)=="0")
+        {
+            localTime = localTime.substr(1,localTime.length);  
+        }
+        time.innerText = localTime;
+    })
+
     temp.innerText = tempValueConvert;
     report.innerText = data["weather"][0]["description"];
-    if(shortTime.substr(0,1)=="0")
-    {
-        shortTime = shortTime.substr(1,shortTime.length);  
-    }
-    time.innerText = shortTime;
+    // if(shortTime.substr(0,1)=="0")
+    // {
+    //     shortTime = shortTime.substr(1,shortTime.length);  
+    // }
+    // time.innerText = shortTime;
 
     
     var isDay = true;
