@@ -77,15 +77,34 @@ function search() {
     .then(data => {
         console.log(data);
         var localTime = data["time_12"];
-        localTime = localTime.substr(0,5) + " " + localTime.substr(9,11);
+
+
+        var fixNum = parseInt(localTime.substr(0,2)) + 1;
+        console.log("fixNum is " + fixNum);
+        if(localTime.substr(0,1)=="0")
+        {
+            localTime = "0" + localTime.substr(1,localTime.length); 
+        }
+        localTime = fixNum + localTime.substr(2, localTime.length);
+        console.log("localTime is " + localTime);
+
+
+        // localTime = localTime.substr(0,4) + " " + localTime.substr(8,11);
         console.log(localTime);
         if(localTime.substr(0,1)=="0")
         {
             time.innerText = localTime.substr(1,localTime.length); 
         }
+        if(localTime.substr(1,1) == ":")
+        {
+            localTime = localTime.substr(0,4) + " " + localTime.substr(8,11);
+            time.innerText = localTime;
+        }
         else
         {
+            localTime = localTime.substr(0,5) + " " + localTime.substr(9,11);
             time.innerText = localTime;
+            
         }
         if(parseInt(localTime.substr(0,2)) < 7 && localTime.substr(6,8) == "AM")
         {
