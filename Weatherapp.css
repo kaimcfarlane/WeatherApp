@@ -106,6 +106,16 @@ body {
   cursor: pointer;
 }
 
+#speciForecast {
+  display: none;
+  margin-top: 98px;
+}
+
+.speciBox {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 #location,
 #icon,
 #time,

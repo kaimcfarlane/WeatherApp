@@ -15,6 +15,10 @@ var location1 = document.getElementById("location");
 var temp = document.getElementById("temperature");
 var title = document.getElementById("title");
 var body = document.getElementsByTagName("body");
+var searchBox = document.getElementById("searchBox");
+var buttonTitle = document.getElementById("buttonTitle");
+var speciForecast = document.getElementById("speciForecast");
+var speciText = document.getElementsByClassName("speciText");
 const desktopPics = ['hillyDay1.jpg', 'hillyDay2.jpg', 'hillyDay3.jpg', 'lifeSunny1.jpg', 'lifeSunny2.jpg', 'sunnyHilly5.jpg'];
 const imgUrl = ['cloudyMoon.png', 'cloud.png', 'thunderstormIcon.png', 'snowIcon.png', 'nightFog.png', 'dayFog.png', 'dayDrizzle.png', 'nightDrizzle.png', 'dayRain.png', 'nightRain.png', 'dayClear.png', 'nightClear.png', 'dayClouds.png'];
 
@@ -37,6 +41,13 @@ function search() {
         fetch('https://api.openweathermap.org/data/2.5/weather?q='+ inputValue.value + '&appid=3bd623ddf9f35d70115baebe19399785')
 .then(res => res.json())
 .then(data => {
+
+    //make buttonTitle display none
+    //searchBox marginTOp  to -180px
+    buttonTitle.style.display = "none";
+    searchBox.style.marginTop = "-180px";
+    speciForecast.style.display = "inline-flex";
+
 
     
     
