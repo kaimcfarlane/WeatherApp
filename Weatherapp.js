@@ -70,6 +70,7 @@ function search() {
     var shortTime = today.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     console.log("The location is" + data["name"]);
     location1.innerText = data["name"] + ", " + data["sys"]["country"];
+    var isDay = true;
 
     fetch('https://api.ipgeolocation.io/timezone?apiKey=7cf838a077034a07a7f031f906157fce&location=' + inputValue.value +  ',%20' + data["sys"]["country"])
     .then(res => res.json())
@@ -80,9 +81,21 @@ function search() {
         console.log(localTime);
         if(localTime.substr(0,1)=="0")
         {
-            localTime = localTime.substr(1,localTime.length);  
+            time.innerText = localTime.substr(1,localTime.length); 
         }
-        time.innerText = localTime;
+        else
+        {
+            time.innerText = localTime;
+        }
+        if(parseInt(localTime.substr(0,2)) < 7 && localTime.substr(6,8) == "AM")
+        {
+            isDay = false;
+        }
+        else if(parseInt(localTime.substr(0,2)) > 8 && localTime.substr(6,8) == "PM")
+        {
+            isDay = false;
+        }
+        console.log(localTime.substr(0,2) + " " + localTime.substr(6,8) + " " + isDay);
     })
 
     temp.innerText = tempValueConvert;
@@ -94,15 +107,16 @@ function search() {
     // time.innerText = shortTime;
 
     
-    var isDay = true;
-    if(parseInt(shortTime.substr(0,2)) < 7 && shortTime.substr(5,7) == "AM")
-    {
-        isDay = false;
-    }
-    else if(parseInt(shortTime.substr(0,2)) > 8 && shortTime.substr(5,7) == "PM")
-    {
-        isDay = false;
-    }
+    
+    // if(parseInt(shortTime.substr(0,2)) < 7 && shortTime.substr(5,7) == "AM")
+    // {
+    //     isDay = false;
+    // }
+    // else if(parseInt(shortTime.substr(0,2)) > 8 && shortTime.substr(5,7) == "PM")
+    // {
+    //     isDay = false;
+    // }
+    
     
 
     hour = shortTime
@@ -231,7 +245,7 @@ function search() {
             document.body.style.animation = "l";
         }, 2100);
     }
-    else if(main == "Clear" && isDay)
+    else if(main == "Clear" && !isDay)
     {
         imgIndex = 10;
         document.body.style.animation = "fadeIn 2s";
@@ -250,7 +264,7 @@ function search() {
             document.body.style.animation = "l";
         }, 2100);
     }
-    else if(main == "Clear" && !isDay)
+    else if(main == "Clear" && isDay)
     {
         imgIndex = 11;
         document.body.style.animation = "fadeIn 2s";
