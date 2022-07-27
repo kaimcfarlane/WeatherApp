@@ -25,6 +25,14 @@ const bodycolor = document.querySelector(".bodyStyle")
 
 var inputValue = document.querySelector(".searchInput");
 var a=0; 
+var b=3;
+var c=5;
+var d=7;
+var e=10;
+var f=13;
+var g=18;
+var h=19;
+var j=21;
 function search() {
         fetch('https://api.openweathermap.org/data/2.5/weather?q='+ inputValue.value + '&appid=3bd623ddf9f35d70115baebe19399785')
 .then(res => res.json())
@@ -103,7 +111,7 @@ function search() {
 
     console.log(parseInt(shortTime.substr(0,2)) + shortTime.substr(5,7) + " " + isDay + " " + main);
     
-    const dekstopBG = ['cloudyDay2.jpg', 'cloudDay3.jpg', 'cloudDay4.jpg' ]
+    const dekstopBG = ['cloudyDay2.jpg', 'cloudDay3.jpg', 'cloudDay4.jpg', 'nightCloudy1.jpg', 'nightCloudy3.jpg', 'sunnyDay3.jpg', 'sunnyDay4.jpg', 'lifeNight2.jpg', 'lifeNight1.jpg', 'cityNight1.jpg', 'fog1.jpg', 'fog2.jpg', 'fog3.jpg', 'snow1.jpg', 'snow2.jpg', 'snow3.jpg', 'snow4.jpg', 'snow5.jpg', 'drizzle1.jpg', 'drizzle2.jpg', 'rain1.jpg', 'rain2.jpg', 'storm1.jpg', 'storm2.jpg', 'storm3.jpg']
     
     // body.style.animation = "";
     // document.body.style.animation = "l";
@@ -113,48 +121,162 @@ function search() {
     if(main == "Thunderstorm")
     {
         imgIndex = 2;
+        document.body.style.animation = "fadeIn 2s";
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[j] + '"' + ')';
+        j++;
+        if (j>23)
+        {
+            j=21;
+        }
+        setTimeout(() =>{
+            document.body.style.animation = "l";
+        }, 2100);
     }
     else if(main == "Drizzle" && !isDay)
     {
         imgIndex = 7;
+        document.body.style.animation = "fadeIn 2s";
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[h] + '"' + ')';
+        h++;
+        if (h>21)
+        {
+            h=19;
+        }
+        setTimeout(() =>{
+            document.body.style.animation = "l";
+        }, 2100);
     }
     else if(main == "Drizzle" && isDay)
     {
         imgIndex = 6;
+        document.body.style.animation = "fadeIn 2s";
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[h] + '"' + ')';
+        h++;
+        if (h>21)
+        {
+            h=19;
+        }
+        setTimeout(() =>{
+            document.body.style.animation = "l";
+        }, 2100);
     }
     else if(main == "Rain" && !isDay)
     {
         imgIndex = 9;
+        document.body.style.animation = "fadeIn 2s";
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[g] + '"' + ')';
+        g++;
+        if (g>19)
+        {
+            g=18;
+        }
+        setTimeout(() =>{
+            document.body.style.animation = "l";
+        }, 2100);
     }
     else if(main == "Rain" && isDay)
     {
         imgIndex = 8;
+        document.body.style.animation = "fadeIn 2s";
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[g] + '"' + ')';
+        g++;
+        if (g>19)
+        {
+            g=18;
+        }
+        setTimeout(() =>{
+            document.body.style.animation = "l";
+        }, 2100);
     }
     else if(main == "Snow")
     {
         imgIndex = 3;
+        document.body.style.animation = "fadeIn 2s";
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[f] + '"' + ')';
+        f++;
+        if (f>17)
+        {
+            f=13;
+        }
+        setTimeout(() =>{
+            document.body.style.animation = "l";
+        }, 2100);
     }
-    else if(main == "Mist" && !isDay)
+    else if((main == "Mist" || main == "Smoke" || main == "Haze" || main == "Dust" || main == "Fog" || main == "Sand" || main == "Ash" || main == "Squall" || main == "Tornado") && isDay)
+    {
+        imgIndex = 5;
+        document.body.style.animation = "fadeIn 2s";
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[e] + '"' + ')';
+        e++;
+        if (e>12)
+        {
+            e=10;
+        }
+        setTimeout(() =>{
+            document.body.style.animation = "l";
+        }, 2100);
+        console.log("its here " + main + " " + isDay);
+    }
+    else if((main == "Mist" || main == "Smoke" || main == "Haze" || main == "Dust" || main == "Fog" || main == "Sand" || main == "Ash" || main == "Squall" || main == "Tornado") && !isDay)
     {
         imgIndex = 4;
+        document.body.style.animation = "fadeIn 2s";
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[e] + '"' + ')';
+        e++;
+        if (e>12)
+        {
+            e=10;
+        }
+        setTimeout(() =>{
+            document.body.style.animation = "l";
+        }, 2100);
     }
-    // else if((main == "Mist" || "Smoke" || "Haze" || "Dust" || "Fog" || "Sand" || "Ash" || "Squall" || "Tornado") && isDay)
-    // {
-    //     imgIndex = 5;
-    //     console.log("its here " + main + " " + isDay);
-    // }
-    // else if((main == "Mist" || "Smoke" || "Haze" || "Dust" || "Fog" || "Sand" || "Ash" || "Squall" || "Tornado") && !isDay)
-    // {
-    //     imgIndex = 11;
-    // }
     else if(main == "Clear" && isDay)
     {
         imgIndex = 10;
+        document.body.style.animation = "fadeIn 2s";
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[c] + '"' + ')';
+        c++;
+        if (c>6)
+        {
+            c=5;
+        }
+        if(c == 6)
+        {
+            weatherInfo.style.backgroundColor = "#00000030";
+            weatherInfo.style.borderRadius = "20px";
+        }
+        setTimeout(() =>{
+            document.body.style.animation = "l";
+        }, 2100);
+    }
+    else if(main == "Clear" && !isDay)
+    {
+        imgIndex = 11;
+        document.body.style.animation = "fadeIn 2s";
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[d] + '"' + ')';
+        d++;
+        if (d>9)
+        {
+            d=7;
+        }
+        setTimeout(() =>{
+            document.body.style.animation = "l";
+        }, 2100);
     }
     else if(main == "Clouds" && !isDay)
     {
         imgIndex = 1;
-        console.log("wow");
+        document.body.style.animation = "fadeIn 2s";
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[b] + '"' + ')';
+        b++;
+        if (b>4)
+        {
+            b=3;
+        }
+        setTimeout(() =>{
+            document.body.style.animation = "l";
+        }, 2100);
     }
     else if(main == "Clouds" && isDay)
     {
@@ -169,7 +291,7 @@ function search() {
         }
         setTimeout(() =>{
             document.body.style.animation = "l";
-        }, 2500);
+        }, 2100);
     }
     console.log(imgIndex);
     var x = 5;
