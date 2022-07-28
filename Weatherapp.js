@@ -19,6 +19,7 @@ var searchBox = document.getElementById("searchBox");
 var buttonTitle = document.getElementById("buttonTitle");
 var speciForecast = document.getElementById("speciForecast");
 var speciText = document.getElementsByClassName("speciText");
+var speciTitle = document.getElementsByClassName("speciTitle");
 const desktopPics = ['hillyDay1.jpg', 'hillyDay2.jpg', 'hillyDay3.jpg', 'lifeSunny1.jpg', 'lifeSunny2.jpg', 'sunnyHilly5.jpg'];
 const imgUrl = ['cloudyMoon.png', 'cloud.png', 'thunderstormIcon.png', 'snowIcon.png', 'nightFog.png', 'dayFog.png', 'dayDrizzle.png', 'nightDrizzle.png', 'dayRain.png', 'nightRain.png', 'dayClear.png', 'nightClear.png', 'dayClouds.png'];
 
@@ -37,6 +38,12 @@ var f=13;
 var g=18;
 var h=19;
 var j=21;
+
+function kTof(kelvin){
+  var faren = ((kelvin-273.15)*1.8)+32;
+  return faren;
+}
+
 function search() {
         fetch('https://api.openweathermap.org/data/2.5/weather?q='+ inputValue.value + '&appid=3bd623ddf9f35d70115baebe19399785')
 .then(res => res.json())
@@ -48,7 +55,21 @@ function search() {
     searchBox.style.marginTop = "-180px";
     speciForecast.style.display = "inline-flex";
 
-
+    for(var ind=0;ind<7;ind++)
+    {
+        speciTitle[ind].style.display = "none";
+    }
+    var feelLike = kTof(data["main"]["feels_like"]);
+    feelLike = String(feelLike);
+    console.log(feelLike);
+    feelLike = feelLike.substr(0,5);
+    speciText[0].innerText = feelLike  + "°";
+    speciText[1].innerText = data["main"]["humidity"] + "%";
+    speciText[2].innerText = data["main"]["pressure"] + " hPa";
+    speciText[3].innerText = "NA";
+    speciText[4].innerText = "NA";
+    speciText[5].innerText = data["visibility"] + " m";
+    speciText[6].innerText = data["wind"]["speed"] + " m/s";
     
     
     console.log(inputValue.value);
