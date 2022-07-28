@@ -66,13 +66,6 @@ function search() {
     speciText[0].innerText = feelLike  + "°";
     speciText[1].innerText = data["main"]["humidity"] + "%";
     speciText[2].innerText = data["main"]["pressure"] + " hPa";
-    speciText[3].innerText = "NA";
-    speciText[4].innerText = "NA";
-    speciText[5].innerText = data["visibility"] + " m";
-    speciText[6].innerText = data["wind"]["speed"] + " m/s";
-    
-    
-    console.log(inputValue.value);
 
     let unix_timestamp = data["sys"]["sunset"]; 
     console.log(unix_timestamp);
@@ -81,9 +74,30 @@ function search() {
     var minutes = "0" + date.getMinutes();
     var seconds = "0" + date.getSeconds();
     var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-    
-    console.log(formattedTime);
+    var sunsetTime = hours + ':' + minutes.substr(-2) + " PM";
+    let unix_timestamp2 = data["sys"]["sunrise"]; 
+    console.log(sunsetTime + " " + date);
+    var date2 = new Date(unix_timestamp2 * 1000);
+    var hours2 = date2.getHours();
+    var minutes2 = "0" + date2.getMinutes();
+    var seconds2 = "0" + date2.getSeconds();
+    var sunriseTime = hours2 + ':' + minutes2.substr(-2) + " AM";
 
+    var fixSunTime = parseInt(sunsetTime.substr(0,2)) - 12;
+    
+
+    console.log(sunsetTime + " " + date2);
+    sunsetTime = fixSunTime + sunsetTime.substr(2, sunsetTime.length);
+
+    speciText[3].innerText = sunriseTime;
+    speciText[4].innerText = sunsetTime;
+    speciText[5].innerText = data["visibility"] + " m";
+    speciText[6].innerText = data["wind"]["speed"] + " m/s";
+    
+    
+    console.log(inputValue.value);
+
+    
     
     let tempValue = data["main"]["temp"];
     let tempValueConvert = Math.round((tempValue - 273.15) * 9/5 + 32) + "° F"; 
