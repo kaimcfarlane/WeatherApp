@@ -67,6 +67,12 @@ function search() {
     speciText[1].innerText = data["main"]["humidity"] + "%";
     speciText[2].innerText = data["main"]["pressure"] + " hPa";
 
+
+
+
+
+
+
     let unix_timestamp = data["sys"]["sunset"]; 
     console.log(unix_timestamp);
     var date = new Date(unix_timestamp * 1000);
@@ -74,6 +80,8 @@ function search() {
     var minutes = "0" + date.getMinutes();
     var seconds = "0" + date.getSeconds();
     var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+
     var sunsetTime = hours + ':' + minutes.substr(-2) + " PM";
     let unix_timestamp2 = data["sys"]["sunrise"]; 
     console.log(sunsetTime + " " + date);
@@ -82,6 +90,9 @@ function search() {
     var minutes2 = "0" + date2.getMinutes();
     var seconds2 = "0" + date2.getSeconds();
     var sunriseTime = hours2 + ':' + minutes2.substr(-2) + " AM";
+    var fixSunTime2 = 0;
+    // var fixSunTime2 = parseInt(sunriseTime.substr(0,2)) - 12;
+    
 
     var fixSunTime = parseInt(sunsetTime.substr(0,2)) - 12;
     
@@ -89,7 +100,7 @@ function search() {
     console.log(sunsetTime + " " + date2);
     sunsetTime = fixSunTime + sunsetTime.substr(2, sunsetTime.length);
 
-    speciText[3].innerText = sunriseTime;
+    
     speciText[4].innerText = sunsetTime;
     speciText[5].innerText = data["visibility"] + " m";
     speciText[6].innerText = data["wind"]["speed"] + " m/s";
@@ -102,9 +113,22 @@ function search() {
     let tempValue = data["main"]["temp"];
     let tempValueConvert = Math.round((tempValue - 273.15) * 9/5 + 32) + "° F"; 
     console.log(tempValueConvert);
+    
+    
+    
     console.log(data);
 
-    
+    var currentHour = 0;
+    setInterval(()=>{
+        var today= new Date();
+        // today.setHours(today.getHours() + 1);s
+        var dateTime = today.toLocaleString();
+        var time = today.toLocaleTimeString();
+        // console.log(time);
+        title.innerText = dateTime;
+        currentHour = parseInt(dateTime.substr(10,11));
+        console.log("Current Hour is " + currentHour);
+    },1000);
 
     
 
@@ -123,9 +147,16 @@ function search() {
     .then(data => {
         console.log(data);
         var localTime = data["time_12"];
-
-
-        var fixNum = parseInt(localTime.substr(0,2)) + 1;
+        var fixNum = 0;
+        if(parseInt(localTime.substr(0,2)) == 12)
+        {
+            fixNum = parseInt(localTime.substr(0,2)) - 11;
+        }
+        else
+        {
+            fixNum = parseInt(localTime.substr(0,2)) + 1;
+        }
+        
         console.log("fixNum is " + fixNum);
         if(localTime.substr(0,1)=="0")
         {
@@ -134,7 +165,7 @@ function search() {
         localTime = fixNum + localTime.substr(2, localTime.length);
         console.log("localTime is " + localTime);
 
-
+        
         // localTime = localTime.substr(0,4) + " " + localTime.substr(8,11);
         console.log(localTime);
         if(localTime.substr(0,1)=="0")
@@ -145,12 +176,15 @@ function search() {
         {
             localTime = localTime.substr(0,4) + " " + localTime.substr(8,11);
             time.innerText = localTime;
+            fixSunTime2 += Math.abs((parseInt(localTime.substr(0,1))) - currentHour);
+            console.log("First " + fixSunTime2);
         }
         else
         {
             localTime = localTime.substr(0,5) + " " + localTime.substr(9,11);
             time.innerText = localTime;
-            
+            fixSunTime2 += Math.abs(parseInt(localTime.substr(0,1)) - currentHour);
+            console.log("Second: " + fixSunTime2);
         }
         if(parseInt(localTime.substr(0,2)) < 7 && localTime.substr(6,8) == "AM")
         {
@@ -161,7 +195,18 @@ function search() {
             isDay = false;
         }
         console.log(localTime.substr(0,2) + " " + localTime.substr(6,8) + " " + isDay);
+        console.log("First " + sunriseTime.substr(0,2));
+        sunriseTime = fixSunTime2 + sunriseTime.substr(2, sunriseTime.length);
+
+
+
+        speciText[3].innerText = sunriseTime;
+
+
+
     })
+    // fixSunTime2 += parseInt(sunriseTime.substr(0,2));
+    
 
     temp.innerText = tempValueConvert;
     report.innerText = data["weather"][0]["description"];
@@ -392,15 +437,6 @@ function search() {
 
 
 
-setInterval(()=>{
-    var today= new Date();
-    // today.setHours(today.getHours() + 1);s
-    var dateTime = today.toLocaleString();
-    var time = today.toLocaleTimeString();
-    // console.log(time);
-    title.innerText = dateTime;
-
-},1000);
 
 // body.style.backgroundImage 
 var slideIndex = 0;
