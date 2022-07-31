@@ -82,6 +82,9 @@ function search() {
     var minutes2 = "0" + date2.getMinutes();
     var seconds2 = "0" + date2.getSeconds();
     var sunriseTime = hours2 + ':' + minutes2.substr(-2) + " AM";
+    var fixSunTime2 = 0;
+    // var fixSunTime2 = parseInt(sunriseTime.substr(0,2)) - 12;
+    
 
     var fixSunTime = parseInt(sunsetTime.substr(0,2)) - 12;
     
@@ -89,7 +92,7 @@ function search() {
     console.log(sunsetTime + " " + date2);
     sunsetTime = fixSunTime + sunsetTime.substr(2, sunsetTime.length);
 
-    speciText[3].innerText = sunriseTime;
+    
     speciText[4].innerText = sunsetTime;
     speciText[5].innerText = data["visibility"] + " m";
     speciText[6].innerText = data["wind"]["speed"] + " m/s";
@@ -104,7 +107,17 @@ function search() {
     console.log(tempValueConvert);
     console.log(data);
 
-    
+    var currentHour = 0;
+    setInterval(()=>{
+        var today= new Date();
+        // today.setHours(today.getHours() + 1);s
+        var dateTime = today.toLocaleString();
+        var time = today.toLocaleTimeString();
+        // console.log(time);
+        title.innerText = dateTime;
+        currentHour = parseInt(dateTime.substr(10,11));
+        console.log("Current Hour is " + currentHour);
+    },1000);
 
     
 
@@ -134,7 +147,7 @@ function search() {
         localTime = fixNum + localTime.substr(2, localTime.length);
         console.log("localTime is " + localTime);
 
-
+        
         // localTime = localTime.substr(0,4) + " " + localTime.substr(8,11);
         console.log(localTime);
         if(localTime.substr(0,1)=="0")
@@ -145,12 +158,15 @@ function search() {
         {
             localTime = localTime.substr(0,4) + " " + localTime.substr(8,11);
             time.innerText = localTime;
+            fixSunTime2 += Math.abs((parseInt(localTime.substr(0,1))) - currentHour);
+            console.log("First " + fixSunTime2);
         }
         else
         {
             localTime = localTime.substr(0,5) + " " + localTime.substr(9,11);
             time.innerText = localTime;
-            
+            fixSunTime2 += Math.abs(parseInt(localTime.substr(0,1)) - currentHour);
+            console.log("Second: " + fixSunTime2);
         }
         if(parseInt(localTime.substr(0,2)) < 7 && localTime.substr(6,8) == "AM")
         {
@@ -161,7 +177,12 @@ function search() {
             isDay = false;
         }
         console.log(localTime.substr(0,2) + " " + localTime.substr(6,8) + " " + isDay);
+        console.log("First " + sunriseTime.substr(0,2));
+        sunriseTime = fixSunTime2 + sunriseTime.substr(2, sunriseTime.length);
+        speciText[3].innerText = sunriseTime;
     })
+    // fixSunTime2 += parseInt(sunriseTime.substr(0,2));
+    
 
     temp.innerText = tempValueConvert;
     report.innerText = data["weather"][0]["description"];
@@ -392,15 +413,6 @@ function search() {
 
 
 
-setInterval(()=>{
-    var today= new Date();
-    // today.setHours(today.getHours() + 1);s
-    var dateTime = today.toLocaleString();
-    var time = today.toLocaleTimeString();
-    // console.log(time);
-    title.innerText = dateTime;
-
-},1000);
 
 // body.style.backgroundImage 
 var slideIndex = 0;
