@@ -98,10 +98,10 @@ function search() {
     
 
     console.log(sunsetTime + " " + date2);
-    sunsetTime = fixSunTime + sunsetTime.substr(2, sunsetTime.length);
+    // sunsetTime = fixSunTime + sunsetTime.substr(2, sunsetTime.length);
 
     
-    speciText[4].innerText = sunsetTime;
+    // speciText[4].innerText = sunsetTime;
     speciText[5].innerText = data["visibility"] + " m";
     speciText[6].innerText = data["wind"]["speed"] + " m/s";
     
@@ -113,7 +113,30 @@ function search() {
     let tempValue = data["main"]["temp"];
     let tempValueConvert = Math.round((tempValue - 273.15) * 9/5 + 32) + "° F"; 
     console.log(tempValueConvert);
+
+    var lat = data['coord']['lat'];
+    var long = data['coord']['lon'];
+    var apiKey = '7cf838a077034a07a7f031f906157fce';
     
+    fetch('https://api.ipgeolocation.io/astronomy?apiKey=' + apiKey + '&lat=' + lat + '&long=' + long)
+        .then(res => res.json())
+        .then(data2 => {
+            console.log(lat + " " + long);
+            console.log(data2);
+            sunriseTime = data2['sunrise'];
+            if(sunriseTime.substr(0,1) == 0)
+            {
+                sunriseTime = sunriseTime.substr(1,sunriseTime.length);
+            }
+            sunriseTime += " AM";
+            speciText[3].innerText = sunriseTime;
+
+            sunsetTime = data2['sunset'];
+            var sunsetInt = parseInt(sunsetTime) - 12;
+            sunsetTime = sunsetInt + sunsetTime.substr(2,sunsetTime.length);
+            sunsetTime += " PM";
+            speciText[4].innerText = sunsetTime;
+        })
     
     
     console.log(data);
@@ -196,11 +219,11 @@ function search() {
         }
         console.log(localTime.substr(0,2) + " " + localTime.substr(6,8) + " " + isDay);
         console.log("First " + sunriseTime.substr(0,2));
-        sunriseTime = fixSunTime2 + sunriseTime.substr(2, sunriseTime.length);
+        // sunriseTime = fixSunTime2 + sunriseTime.substr(2, sunriseTime.length);
 
 
 
-        speciText[3].innerText = sunriseTime;
+        // speciText[3].innerText = sunriseTime;
 
 
 
