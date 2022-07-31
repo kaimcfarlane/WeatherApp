@@ -7,6 +7,7 @@ const humidityElement = document.querySelector('[data-humidity]')
 const preciElement = document.querySelector('[data-preci]')
 
 
+var arrow = document.getElementById("arrow");
 var weatherInfo = document.getElementById("weatherInfo");
 var timeText = document.getElementById("time");
 var inconHtml = document.getElementById("icon");
@@ -50,6 +51,7 @@ function search() {
 .then(data => {
 
     title.innerText = "";
+    arrow.style.display = "flex";
     //make buttonTitle display none
     //searchBox marginTOp  to -180px
     buttonTitle.style.display = "none";
