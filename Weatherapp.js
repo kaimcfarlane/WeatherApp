@@ -49,6 +49,7 @@ function search() {
 .then(res => res.json())
 .then(data => {
 
+    title.innerText = "";
     //make buttonTitle display none
     //searchBox marginTOp  to -180px
     buttonTitle.style.display = "none";
