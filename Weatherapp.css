@@ -184,7 +184,7 @@ body {
 }
 
 #settingsBox {
-  display: none;
+  /* display: none; */
   flex-direction: column;
   align-items: center;
   position: fixed;
@@ -196,9 +196,40 @@ body {
   width: 40%;
   top: 20%;
   height: 50%;
-  background: #d9edffd1;
+  /* background: #d9edffd1; */
+  background: rgba(110, 110, 110, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
 
   /* We will be needing box shadow and a dif background later */
+}
+
+.activeSetting {
+  animation: settingOut 3s;
+  animation-fill-mode: forwards;
+}
+
+.inactiveSetting {
+  animation: settingIn 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes settingOut {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes settingIn {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .setting {

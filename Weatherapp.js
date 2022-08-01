@@ -58,7 +58,9 @@ function expOption() {
         searchBox.classList.add("inactiveSearch");
 
         //will rempve and place in css later
-        settingsBox.style.display = "none";
+        settingsBox.classList.remove("activeSetting");
+        settingsBox.classList.add("inactiveSetting");
+        // settingsBox.style.display = "none";
         exp = false;
     }
     else
@@ -69,7 +71,9 @@ function expOption() {
         searchBox.classList.remove("inactiveSearch");
 
         //will rempve and place in css later
-        settingsBox.style.display = "flex";
+        settingsBox.classList.add("activeSetting");
+        settingsBox.classList.remove("inactiveSetting");
+        // settingsBox.style.display = "flex";
         exp = true;
     }
 }
