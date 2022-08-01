@@ -8,6 +8,7 @@ const preciElement = document.querySelector('[data-preci]')
 
 var outerBox = document.getElementById("outerBox");
 var arrow = document.getElementById("arrow");
+var settingsBox = document.getElementById("settingsBox");
 var weatherInfo = document.getElementById("weatherInfo");
 var timeText = document.getElementById("time");
 var inconHtml = document.getElementById("icon");
@@ -55,6 +56,9 @@ function expOption() {
         outerBox.classList.add("inactiveBox");
         searchBox.classList.remove("activeSearch");
         searchBox.classList.add("inactiveSearch");
+
+        //will rempve and place in css later
+        settingsBox.style.display = "none";
         exp = false;
     }
     else
@@ -63,6 +67,9 @@ function expOption() {
         outerBox.classList.remove("inactiveBox");
         searchBox.classList.add("activeSearch");
         searchBox.classList.remove("inactiveSearch");
+
+        //will rempve and place in css later
+        settingsBox.style.display = "flex";
         exp = true;
     }
 }

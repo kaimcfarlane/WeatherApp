@@ -61,6 +61,7 @@ body {
 }
 
 .arrow {
+  z-index: 1;
   display: none;
   cursor: pointer;
   height: 120px;
@@ -180,6 +181,28 @@ body {
     /* transform: translateX(-360px); */
     margin-left: 0px;
   }
+}
+
+#settingsBox {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  /* right: 0;
+  top: 0;
+  width: 40%;
+  height: 100%; */
+  right: 0;
+  width: 40%;
+  top: 20%;
+  height: 50%;
+  background: #d9edffd1;
+
+  /* We will be needing box shadow and a dif background later */
+}
+
+.setting {
+  padding: 45px;
 }
 
 .activeSearch {
