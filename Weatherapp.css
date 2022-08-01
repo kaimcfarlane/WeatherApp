@@ -145,6 +145,75 @@ body {
   margin-top: 238px;
 }
 
+/* .active,
+#outerBox {
+  animation: shiftLeft 3s;
+} */
+
+.activeBox {
+  animation: shiftLeftBox 3s;
+  animation-fill-mode: forwards;
+}
+
+.inactiveBox {
+  animation: shiftRightBox 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shiftLeftBox {
+  0% {
+    /* transform: translateX(0px); */
+    margin-left: 0px;
+  }
+  100% {
+    /* transform: translateX(-360px); */
+    margin-left: -360px;
+  }
+}
+
+@keyframes shiftRightBox {
+  0% {
+    /* transform: translateX(0px); */
+    margin-left: -360px;
+  }
+  100% {
+    /* transform: translateX(-360px); */
+    margin-left: 0px;
+  }
+}
+
+.activeSearch {
+  animation: shiftLeftSearch 3s;
+  animation-fill-mode: forwards;
+}
+
+.inactiveSearch {
+  animation: shiftRightSearch 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shiftLeftSearch {
+  0% {
+    /* transform: translateX(0px); */
+    margin-left: 0px;
+  }
+  100% {
+    /* transform: translateX(-360px); */
+    margin-left: -180px;
+  }
+}
+
+@keyframes shiftRightSearch {
+  0% {
+    /* transform: translateX(0px); */
+    margin-left: -180px;
+  }
+  100% {
+    /* transform: translateX(-360px); */
+    margin-left: 0px;
+  }
+}
+
 #buttonTitle {
   margin-top: -82px;
   font-size: 30px;
