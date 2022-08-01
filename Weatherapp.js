@@ -52,6 +52,7 @@ function expOption() {
     console.log("Arrow Clicked !!!");
     if(exp)
     {
+        
         outerBox.classList.remove("activeBox");
         outerBox.classList.add("inactiveBox");
         searchBox.classList.remove("activeSearch");
@@ -73,6 +74,7 @@ function expOption() {
         //will rempve and place in css later
         settingsBox.classList.add("activeSetting");
         settingsBox.classList.remove("inactiveSetting");
+        settingsBox.style.display = "flex";
         // settingsBox.style.display = "flex";
         exp = true;
     }
@@ -82,7 +84,6 @@ function search() {
         fetch('https://api.openweathermap.org/data/2.5/weather?q='+ inputValue.value + '&appid=3bd623ddf9f35d70115baebe19399785')
 .then(res => res.json())
 .then(data => {
-
     title.innerText = " ";
     arrow.style.display = "flex";
     //make buttonTitle display none
