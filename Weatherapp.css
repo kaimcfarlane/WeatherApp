@@ -420,6 +420,10 @@ input:checked:focus + .switch-left + .switch-right {
   color: #333;
 }
 
+/* Code for 2nd Switch*/
+
+/* end */
+
 #buttonTitle {
   margin-top: -82px;
   font-size: 30px;
