@@ -348,6 +348,15 @@ body {
   }
 }
 
+@keyframes dark3 {
+  0% {
+    background-color: rgba(110, 110, 110, 0.25);
+  }
+  100% {
+    background: rgb(0 0 0 / 49%);
+  }
+}
+
 @keyframes light {
   0% {
     background-color: #00000087;
@@ -372,6 +381,15 @@ body {
   100% {
     background-color: rgba(110, 110, 110, 00.25);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes light3 {
+  0% {
+    background: rgb(0 0 0 / 49%);
+  }
+  100% {
+    background-color: rgba(110, 110, 110, 0.25);
   }
 }
 

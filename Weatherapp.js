@@ -586,6 +586,9 @@ function bright() {
 
     weatherInfo.classList.remove("activeDarkWeatherInfo");
     weatherInfo.classList.add("inactiveDarkWeatherInfo");
+
+    settingsBox.classList.remove("activeDarkWeatherInfo3");
+    settingsBox.classList.add("inactiveDarkWeatherInfo3");
 }
 
 function dark() {
@@ -599,8 +602,9 @@ function dark() {
     weatherInfo.classList.remove("inactiveDarkWeatherInfo");
     weatherInfo.classList.add("activeDarkWeatherInfo");
 
+    settingsBox.classList.remove("inactiveDarkWeatherInfo3");
+    settingsBox.classList.add("activeDarkWeatherInfo3");
     
-
     // weatherInfo.style.bottom = "2%";
     // weatherInfo.style.borderRadius = "38px";
     // weatherInfo.style.backgroundColor = "#00000087"
