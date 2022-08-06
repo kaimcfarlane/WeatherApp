@@ -25,6 +25,14 @@ var speciTitle = document.getElementsByClassName("speciTitle");
 const desktopPics = ['hillyDay1.jpg', 'hillyDay2.jpg', 'hillyDay3.jpg', 'lifeSunny1.jpg', 'lifeSunny2.jpg', 'sunnyHilly5.jpg'];
 const imgUrl = ['cloudyMoon.png', 'cloud.png', 'thunderstormIcon.png', 'snowIcon.png', 'nightFog.png', 'dayFog.png', 'dayDrizzle.png', 'nightDrizzle.png', 'dayRain.png', 'nightRain.png', 'dayClear.png', 'nightClear.png', 'dayClouds.png'];
 
+var celsiusScope = "";
+var tempValueConvertScope = "";
+var feelLikeScope = "";
+var CfeelLikeScope = "";
+var visibilityScope = "";
+var visibilityCustomScope = "";
+var windScope = "";
+var windCustomScope = "";
 
 const cityButton = document.querySelector(".cityButton")
 // const inputValue = document.querySelector(".inputValue")
@@ -48,11 +56,24 @@ function kTof(kelvin){
 
 var exp = false;
 // for button click, (animation 0-100) margin-left outerBox -360px and searchBox around half that
+var isDark = false;
 function expOption() {
     console.log("Arrow Clicked !!!");
     if(exp)
     {
-        
+        if(isDark)
+        {
+            settingsBox.style.backgroundColor = "rgb(0 0 0 / 49%)";
+            settingsBox.classList.remove("activeDarkWeatherInfo3");
+        }
+        else{
+            settingsBox.style.backgroundColor =  "rgba(110, 110, 110, 0.25)";
+            settingsBox.classList.remove("inactiveDarkWeatherInfo3");
+        }
+        // settingsBox.classList.remove("activeDarkWeatherInfo3");
+        // settingsBox.classList.remove("inactiveDarkWeatherInfo3");
+
+
         outerBox.classList.remove("activeBox");
         outerBox.classList.add("inactiveBox");
         searchBox.classList.remove("activeSearch");
@@ -96,11 +117,16 @@ function search() {
     {
         speciTitle[ind].style.display = "none";
     }
-    var feelLike = kTof(data["main"]["feels_like"]);
+    var feelLike = Math.round(kTof(data["main"]["feels_like"]));
+    var CfeelLike = Math.round(data["main"]["feels_like"] - 273.15);
+    CfeelLike = String(CfeelLike);
     feelLike = String(feelLike);
     console.log(feelLike);
     feelLike = feelLike.substr(0,5);
-    speciText[0].innerText = feelLike  + "°";
+    // speciText[0].innerText = feelLike  + "°";
+    feelLikeScope = feelLike;
+    CfeelLikeScope = CfeelLike;
+    speciText[0].innerText = CfeelLike  + "°C";
     speciText[1].innerText = data["main"]["humidity"] + "%";
     speciText[2].innerText = data["main"]["pressure"] + " hPa";
 
@@ -139,8 +165,17 @@ function search() {
 
     
     // speciText[4].innerText = sunsetTime;
+
+    visibilityScope = data["visibility"] + " m";
     speciText[5].innerText = data["visibility"] + " m";
+    let customVisibility = data["visibility"] * 3.281;
+    customVisibility = customVisibility + " f";
+    visibilityCustomScope = customVisibility;
+    windScope = data["wind"]["speed"] + " m/s";
     speciText[6].innerText = data["wind"]["speed"] + " m/s";
+    let customWindSpeed = Math.round(data["wind"]["speed"] * 3.281);
+    customWindSpeed = customWindSpeed + " f/s";
+    windCustomScope = customWindSpeed;
     
     
     console.log(inputValue.value);
@@ -149,6 +184,9 @@ function search() {
     
     let tempValue = data["main"]["temp"];
     let tempValueConvert = Math.round((tempValue - 273.15) * 9/5 + 32) + "° F"; 
+    let celsius = Math.round(tempValue - 273.15) + "° C";
+    celsiusScope = celsius;
+    tempValueConvertScope = tempValueConvert;
     console.log(tempValueConvert);
 
     var lat = data['coord']['lat'];
@@ -268,7 +306,8 @@ function search() {
     // fixSunTime2 += parseInt(sunriseTime.substr(0,2));
     
 
-    temp.innerText = tempValueConvert;
+    // temp.innerText = tempValueConvert;
+    temp.innerText = celsius;
     report.innerText = data["weather"][0]["description"];
     // if(shortTime.substr(0,1)=="0")
     // {
@@ -572,6 +611,7 @@ var slideIndex = 0;
     //for setting stiwches
 
 function bright() {
+    isDark = false;
     console.log("Brightness turned on");
     // title.style.background = "rgba(110, 110, 110, 00.25)";
     // title.style.boxShadow = "0 8px 32px 0 rgba(0, 0, 0, 0.3)";
@@ -592,6 +632,7 @@ function bright() {
 }
 
 function dark() {
+    isDark = true;
     console.log("Darkness turned on");
     // title.style.background = "rgb(0 0 0 / 50%)";
     // title.style.boxShadow = "0 8px 32px 0 rgb(0 0 0 / 71%)";
@@ -609,6 +650,22 @@ function dark() {
     // weatherInfo.style.borderRadius = "38px";
     // weatherInfo.style.backgroundColor = "#00000087"
     // weatherInfo.style.boxShadow = "rgb(0 0 0 / 30%) 0px 54px 55px, rgb(0 0 0 / 54%) 0px -12px 30px, rgb(0 0 0 / 44%) 0px 4px 6px, rgb(0 0 0 / 59%) 0px 12px 13px, rgb(0 0 0 / 87%) 0px -3px 5px";
+}
+
+function activeCustom(){
+    console.log("activecustom");
+    temp.innerText = tempValueConvertScope;
+    speciText[0].innerText = feelLikeScope  + "°F";
+    speciText[5].innerText = visibilityCustomScope;
+    speciText[6].innerText = windCustomScope;
+}
+
+function inactiveCustom(){
+    console.log("inactivecustom");
+    temp.innerText = celsiusScope;
+    speciText[0].innerText = CfeelLikeScope + "°C";
+    speciText[5].innerText = visibilityScope;
+    speciText[6].innerText = windScope;
 }
 
 var toggle = document.getElementById('container');
