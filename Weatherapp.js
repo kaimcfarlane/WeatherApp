@@ -573,22 +573,33 @@ var slideIndex = 0;
 
 function bright() {
     console.log("Brightness turned on");
-    title.style.background = "rgba(110, 110, 110, 00.25)";
-    title.style.boxShadow = "0 8px 32px 0 rgba(0, 0, 0, 0.3)";
+    // title.style.background = "rgba(110, 110, 110, 00.25)";
+    // title.style.boxShadow = "0 8px 32px 0 rgba(0, 0, 0, 0.3)";
 
-    weatherInfo.style.bottom = "0";
-    weatherInfo.style.borderRadius = "0";
-    weatherInfo.style.backgroundColor = "";
-    weatherInfo.style.boxShadow = "";
+    // weatherInfo.style.bottom = "0";
+    // weatherInfo.style.borderRadius = "0";
+    // weatherInfo.style.backgroundColor = "";
+    // weatherInfo.style.boxShadow = "";
+
+    title.classList.remove("activeDarkWeatherInfo2");
+    title.classList.add("inactiveDarkWeatherInfo2");
+
+    weatherInfo.classList.remove("activeDarkWeatherInfo");
+    weatherInfo.classList.add("inactiveDarkWeatherInfo");
 }
 
 function dark() {
     console.log("Darkness turned on");
-    title.style.background = "rgb(0 0 0 / 50%)";
-    title.style.boxShadow = "0 8px 32px 0 rgb(0 0 0 / 71%)";
+    // title.style.background = "rgb(0 0 0 / 50%)";
+    // title.style.boxShadow = "0 8px 32px 0 rgb(0 0 0 / 71%)";
 
+    title.classList.remove("inactiveDarkWeatherInfo2");
+    title.classList.add("activeDarkWeatherInfo2");
+
+    weatherInfo.classList.remove("inactiveDarkWeatherInfo");
     weatherInfo.classList.add("activeDarkWeatherInfo");
-    // weatherInfo.classList.remove("inactiveDarkWeatherInfo");
+
+    
 
     // weatherInfo.style.bottom = "2%";
     // weatherInfo.style.borderRadius = "38px";
