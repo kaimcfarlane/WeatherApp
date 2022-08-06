@@ -22,6 +22,7 @@ var buttonTitle = document.getElementById("buttonTitle");
 var speciForecast = document.getElementById("speciForecast");
 var speciText = document.getElementsByClassName("speciText");
 var speciTitle = document.getElementsByClassName("speciTitle");
+var speciIcon = document.getElementsByClassName("speciIcon");
 const desktopPics = ['hillyDay1.jpg', 'hillyDay2.jpg', 'hillyDay3.jpg', 'lifeSunny1.jpg', 'lifeSunny2.jpg', 'sunnyHilly5.jpg'];
 const imgUrl = ['cloudyMoon.png', 'cloud.png', 'thunderstormIcon.png', 'snowIcon.png', 'nightFog.png', 'dayFog.png', 'dayDrizzle.png', 'nightDrizzle.png', 'dayRain.png', 'nightRain.png', 'dayClear.png', 'nightClear.png', 'dayClouds.png'];
 
@@ -666,6 +667,28 @@ function inactiveCustom(){
     speciText[0].innerText = CfeelLikeScope + "°C";
     speciText[5].innerText = visibilityScope;
     speciText[6].innerText = windScope;
+}
+
+var words = false;
+function wordSwap() {
+    console.log("word and icons were swapped.");
+    
+        if(words)
+        {
+            for(var v=0;v<speciText.length;v++){
+                speciIcon[v].style.display = "inline-flex";
+                speciTitle[v].style.display = "none";
+            }
+            words = false;
+        }
+        else
+        {
+            for(var v=0;v<speciText.length;v++){
+                speciIcon[v].style.display = "none";
+                speciTitle[v].style.display = "inline-flex";
+            }
+            words = true;
+        }
 }
 
 var toggle = document.getElementById('container');
