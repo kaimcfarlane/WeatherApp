@@ -33,28 +33,61 @@
         </div>
 
         <div id="settingsBox">
-            <div class="setting">
+            <!-- <div class="setting">
                 SETTINGS
+            </div> -->
+            <div class="setting">
+                <div class="settingSubTitle" id="contrast">
+                    CONTRAST
+                </div>
+                <div class="toggle-radio">
+                    <input type="radio" name="rdo" id="yes" checked>
+                    <input type="radio" name="rdo" id="no">
+                    <div class="switch" id="contrastSwitch">
+                      <label for="yes">
+                          <!-- Light -->
+                          <img alt="" src="dayClear.png" width="35px", height="35px" id="sunSwitch">
+                        </label>
+                      <label for="no">
+                          <!-- Dark -->
+                          <img alt="" src="nightClear.png" width="35px", height="35px" id="nightSwitch">
+                        </label>
+                      <span></span>
+                    </div>
+                </div>
+                <!-- font-family: 'Helvetica Rounded', 'Arial Rounded MT Bold','Montserrat', sans-serif; -->
             </div>
             <div class="setting">
-                Switch One
-                <div class="mid">
-
-                    <!-- <label class="rocker">
-                      <input type="checkbox" checked>
-                      <span class="switch-left">On</span>
-                      <span class="switch-right">Off</span>
-                    </label> -->
-
-                   
-                  
-                  </div>
+                <div class="settingSubTitle">
+                    UNITS
+                </div>
+                <div id="container">
+                    <div class="inner-container">
+                        <div class="toggle">
+                            <p>Custom</p>
+                        </div>
+                        <div class="toggle">
+                            <p>Metric</p>
+                        </div>
+                    </div>
+                    <div class="inner-container" id='toggle-container'>
+                        <div class="toggle">
+                            <p>Custom</p>
+                        </div>
+                        <div class="toggle">
+                            <p>Metric</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="setting">
-                Switch Two
-            </div>
-            <div class="setting">
-                Switch Three
+            <div class="setting" id="icon-word">
+                <div class="settingSubTitle">
+                    WORDS
+                </div>
+                <input id="chck" type="checkbox">
+                    <label for="chck" class="check-trail">
+                      <span class="check-handler"></span>
+                    </label>
             </div>
         </div>
 
