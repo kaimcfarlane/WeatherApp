@@ -58,6 +58,8 @@ body {
   background: rgba(110, 110, 110, 00.25);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
+  /* background: rgb(0 0 0 / 50%); */
+  /* box-shadow: 0 8px 32px 0 rgb(0 0 0 / 71%); */
 }
 
 .arrow {
@@ -238,6 +240,7 @@ body {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  color: #e9e9e9;
 }
 
 .settingSubTitle {
@@ -287,6 +290,31 @@ body {
 /* code for siwtches*/
 
 /* 2nd Switch starts here */
+
+.activeDarkWeatherInfo {
+  animation: dark 2s;
+  animation-fill-mode: forwards;
+}
+
+.inactiveDarkWeatherInfo {
+  animation: dark 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes dark {
+  0% {
+    background-color: #0000;
+  }
+  100% {
+    background-color: #00000087;
+    bottom: 2%;
+    border-radius: 38px;
+    box-shadow: rgb(0 0 0 / 30%) 0px 54px 55px, rgb(0 0 0 / 54%) 0px -12px 30px,
+      rgb(0 0 0 / 44%) 0px 4px 6px, rgb(0 0 0 / 59%) 0px 12px 13px,
+      rgb(0 0 0 / 87%) 0px -3px 5px;
+  }
+}
+
 #container {
   /* width: 160px; */
   width: 150px;
@@ -556,6 +584,8 @@ p {
   /* width: 100%; */
   /* height: 100%; */
 
+  /* box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px; */
+  /* box-shadow: rgb(0 0 0 / 30%) 0px 54px 55px, rgb(0 0 0 / 54%) 0px -12px 30px, rgb(0 0 0 / 44%) 0px 4px 6px, rgb(0 0 0 / 59%) 0px 12px 13px, rgb(0 0 0 / 87%) 0px -3px 5px; */
   display: flex;
 
   display: none;

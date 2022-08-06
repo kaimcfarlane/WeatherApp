@@ -571,7 +571,32 @@ var slideIndex = 0;
 
     //for setting stiwches
 
-    var toggle = document.getElementById('container');
+function bright() {
+    console.log("Brightness turned on");
+    title.style.background = "rgba(110, 110, 110, 00.25)";
+    title.style.boxShadow = "0 8px 32px 0 rgba(0, 0, 0, 0.3)";
+
+    weatherInfo.style.bottom = "0";
+    weatherInfo.style.borderRadius = "0";
+    weatherInfo.style.backgroundColor = "";
+    weatherInfo.style.boxShadow = "";
+}
+
+function dark() {
+    console.log("Darkness turned on");
+    title.style.background = "rgb(0 0 0 / 50%)";
+    title.style.boxShadow = "0 8px 32px 0 rgb(0 0 0 / 71%)";
+
+    weatherInfo.classList.add("activeDarkWeatherInfo");
+    // weatherInfo.classList.remove("inactiveDarkWeatherInfo");
+
+    // weatherInfo.style.bottom = "2%";
+    // weatherInfo.style.borderRadius = "38px";
+    // weatherInfo.style.backgroundColor = "#00000087"
+    // weatherInfo.style.boxShadow = "rgb(0 0 0 / 30%) 0px 54px 55px, rgb(0 0 0 / 54%) 0px -12px 30px, rgb(0 0 0 / 44%) 0px 4px 6px, rgb(0 0 0 / 59%) 0px 12px 13px, rgb(0 0 0 / 87%) 0px -3px 5px";
+}
+
+var toggle = document.getElementById('container');
 var toggleContainer = document.getElementById('toggle-container');
 var toggleNumber;
 
@@ -579,7 +604,7 @@ toggle.addEventListener('click', function() {
 	toggleNumber = !toggleNumber;
 	if (toggleNumber) {
 		toggleContainer.style.clipPath = 'inset(0 0 0 50%)';
-		toggleContainer.style.backgroundColor = '#D74046';
+        toggleContainer.style.backgroundColor = '#D74046';
 	} else {
 		toggleContainer.style.clipPath = 'inset(0 50% 0 0)';
 		toggleContainer.style.backgroundColor = 'dodgerblue';
