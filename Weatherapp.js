@@ -34,6 +34,7 @@ var visibilityScope = "";
 var visibilityCustomScope = "";
 var windScope = "";
 var windCustomScope = "";
+var isMetric = true;
 
 const cityButton = document.querySelector(".cityButton")
 // const inputValue = document.querySelector(".inputValue")
@@ -127,7 +128,18 @@ function search() {
     // speciText[0].innerText = feelLike  + "°";
     feelLikeScope = feelLike;
     CfeelLikeScope = CfeelLike;
-    speciText[0].innerText = CfeelLike  + "°C";
+
+    
+    // function activeCustom(){
+    //     console.log("activecustom");
+    //     temp.innerText = tempValueConvertScope;
+    //     speciText[0].innerText = feelLikeScope  + "°F";
+    //     speciText[5].innerText = visibilityCustomScope;
+    //     speciText[6].innerText = windCustomScope;
+    // }
+    // speciText[0].innerText = CfeelLike  + "°C";
+
+    speciText[0].innerText = CfeelLike + "°C";
     speciText[1].innerText = data["main"]["humidity"] + "%";
     speciText[2].innerText = data["main"]["pressure"] + " hPa";
 
@@ -177,6 +189,7 @@ function search() {
     let customWindSpeed = Math.round(data["wind"]["speed"] * 3.281);
     customWindSpeed = customWindSpeed + " f/s";
     windCustomScope = customWindSpeed;
+
     
     
     console.log(inputValue.value);
@@ -189,6 +202,18 @@ function search() {
     celsiusScope = celsius;
     tempValueConvertScope = tempValueConvert;
     console.log(tempValueConvert);
+
+    temp.innerText = celsius;
+
+    console.log("RIGHT ABOVE THE CODE");
+    if(!isMetric) {
+        // temp.innerText = tempValueConvert;
+        temp.innerText = tempValueConvert;
+        console.log(tempValueConvertScope + " is scope and" + tempValueConvert + " is inside parenthesis");
+        speciText[0].innerText = feelLikeScope  + "°F";
+        speciText[5].innerText = visibilityCustomScope;
+        speciText[6].innerText = windCustomScope;
+    }
 
     var lat = data['coord']['lat'];
     var long = data['coord']['lon'];
@@ -308,7 +333,7 @@ function search() {
     
 
     // temp.innerText = tempValueConvert;
-    temp.innerText = celsius;
+    // temp.innerText = celsius;
     report.innerText = data["weather"][0]["description"];
     // if(shortTime.substr(0,1)=="0")
     // {
@@ -531,6 +556,9 @@ function search() {
     })
 
     .catch(err => console.log(err));
+
+    
+
 }
 
 
@@ -604,6 +632,9 @@ var slideIndex = 0;
 //     }, false);
 
 
+
+
+
  //For some reason match functions will only work with string outputs. This is why the above trext works
     //I need to find a way to convert my coordinates into a string
     // var tName = coordValue;
@@ -659,6 +690,7 @@ function activeCustom(){
     speciText[0].innerText = feelLikeScope  + "°F";
     speciText[5].innerText = visibilityCustomScope;
     speciText[6].innerText = windCustomScope;
+    isMetric = false;
 }
 
 function inactiveCustom(){
@@ -667,7 +699,10 @@ function inactiveCustom(){
     speciText[0].innerText = CfeelLikeScope + "°C";
     speciText[5].innerText = visibilityScope;
     speciText[6].innerText = windScope;
+    isMetric = true;
 }
+
+//add a boolean for this so that when button clciked again we see if yes, if so, we have these changes put in.
 
 var words = false;
 function wordSwap() {
@@ -706,3 +741,9 @@ toggle.addEventListener('click', function() {
 	}
 	console.log(toggleNumber)
 });
+
+//before anything just known the orginial is "height=250px and "margin-top=238px" (FOr both city-search- and result pages) so that is what the changes 
+//we do below should match for desktop, then we see if those exact changes work for laptop
+//For #outerbox we can either change the margin top value, or add a postion of 
+//fixed and add the "top" property to it. Try top on both laptop and desktop to make sure its the same.
+
