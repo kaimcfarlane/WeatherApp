@@ -1,0 +1,9 @@
+@media (max-width: 450px) {
+}
+/* Main title needs to be smaller
+could maybe just always have active class for search bar
+The search Thingy needs to be changed maybe some type of display none because the hover animation doesn't work 
+The revealed is okay but the background box needs to be wider.
+Wehn we actually see on mobile we need to adjust the height of information shown 
+Temperature also needs to be a bit smaller so it can fit all on one line 
+Lastly the exapned stuff may need to be expanded further. Probably can adjust the width on that in css. */

@@ -51,6 +51,7 @@ var g=18;
 var h=19;
 var j=21;
 
+//converts kelvin to farenheit
 function kTof(kelvin){
   var faren = ((kelvin-273.15)*1.8)+32;
   return faren;
@@ -103,6 +104,7 @@ function expOption() {
     }
 }
 
+//sends user input to weather api, takes reponse and outputs to application
 function search() {
         fetch('https://api.openweathermap.org/data/2.5/weather?q='+ inputValue.value + '&appid=3bd623ddf9f35d70115baebe19399785')
 .then(res => res.json())
