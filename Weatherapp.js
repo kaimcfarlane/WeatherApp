@@ -109,9 +109,9 @@ function search() {
         fetch('https://api.openweathermap.org/data/2.5/weather?q='+ inputValue.value + '&appid=3bd623ddf9f35d70115baebe19399785')
 .then(res => res.json())
 .then(data => {
-    if(screen.height <= 850) {
+    if(screen.height <= 1000) {
         outerBox.style.marginTop = "180px";
-    }
+    } 
     title.innerText = " ";
     arrow.style.display = "flex";
     //make buttonTitle display none
@@ -756,6 +756,6 @@ toggle.addEventListener('click', function() {
 //margin top 180px
 //Laptop prob under 850px high
 
-if(screen.height <= 850) {
+if(screen.height <= 1000) {
     outerBox.style.marginTop = "200px";
 }
