@@ -109,6 +109,9 @@ function search() {
         fetch('https://api.openweathermap.org/data/2.5/weather?q='+ inputValue.value + '&appid=3bd623ddf9f35d70115baebe19399785')
 .then(res => res.json())
 .then(data => {
+    if(screen.height <= 850) {
+        outerBox.style.marginTop = "180px";
+    }
     title.innerText = " ";
     arrow.style.display = "flex";
     //make buttonTitle display none
@@ -749,3 +752,10 @@ toggle.addEventListener('click', function() {
 //For #outerbox we can either change the margin top value, or add a postion of 
 //fixed and add the "top" property to it. Try top on both laptop and desktop to make sure its the same.
 
+// margin top 200px
+//margin top 180px
+//Laptop prob under 850px high
+
+if(screen.height <= 850) {
+    outerBox.style.marginTop = "200px";
+}

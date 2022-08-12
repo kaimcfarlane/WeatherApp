@@ -146,6 +146,8 @@ body {
   align-items: center;
   width: 50%;
   margin-top: 238px;
+  /* position: inherit;
+  top: 32.3%; */
 }
 
 /* .active,
