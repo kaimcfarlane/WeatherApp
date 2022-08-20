@@ -135,8 +135,8 @@ function search() {
     speciForecast.style.display = "inline-flex";
     if(screen.width <=800)
     {
-        outerBox.style.marginTop = "65px";
-        searchBox.style.marginTop = "-90px";
+        outerBox.style.marginTop = "40px";
+        searchBox.style.marginTop = "-115px";
         // 85
         // 70
     }
