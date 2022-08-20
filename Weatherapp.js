@@ -771,10 +771,12 @@ if(screen.width <=800) {
     cityButton.classList.add("mobSearch1");
     searchInputID.classList.add("mobSearch2");
     console.log("yea");
-    searchInputID.addEventListener("click", ()=>{
-        cityButton.style.cursor = "pointer";
-        cityButton.style.marginTop = "0px";
-    });
+    if(screen.width>=443){
+        searchInputID.addEventListener("click", ()=>{
+            cityButton.style.cursor = "pointer";
+            cityButton.style.marginTop = "0px";
+        });
+    }
     setInterval(()=>{
         console.log("hello");
         if(onSecondPage)
