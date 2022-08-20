@@ -64,10 +64,19 @@ function kTof(kelvin){
 var exp = false;
 // for button click, (animation 0-100) margin-left outerBox -360px and searchBox around half that
 var isDark = false;
+
+if(screen.height <= 1000) {
+    outerBox.style.marginTop = "180px";
+} 
+
 function expOption() {
     console.log("Arrow Clicked !!!");
+
     if(exp)
     {
+        setTimeout(()=>{
+            cityButton.style.marginTop = "-40px";
+        },300)
         if(isDark)
         {
             settingsBox.style.backgroundColor = "rgb(0 0 0 / 49%)";
@@ -94,6 +103,9 @@ function expOption() {
     }
     else
     {
+        setTimeout(()=>{
+            cityButton.style.marginTop = "0px";
+        },900)
         outerBox.classList.add("activeBox");
         outerBox.classList.remove("inactiveBox");
         searchBox.classList.add("activeSearch");
@@ -113,9 +125,6 @@ function search() {
         fetch('https://api.openweathermap.org/data/2.5/weather?q='+ inputValue.value + '&appid=3bd623ddf9f35d70115baebe19399785')
 .then(res => res.json())
 .then(data => {
-    if(screen.height <= 1000) {
-        outerBox.style.marginTop = "180px";
-    } 
     onSecondPage = true;
     title.innerText = " ";
     arrow.style.display = "flex";
@@ -124,6 +133,10 @@ function search() {
     buttonTitle.style.display = "none";
     searchBox.style.marginTop = "-180px";
     speciForecast.style.display = "inline-flex";
+    if(screen.width <=800)
+    {
+        outerBox.style.marginTop = "50px";
+    }
 
     for(var ind=0;ind<7;ind++)
     {
@@ -761,12 +774,10 @@ toggle.addEventListener('click', function() {
 //margin top 180px
 //Laptop prob under 850px high
 
-if(screen.height <= 1000) {
-    outerBox.style.marginTop = "200px";
-}
+
 
 var searchInputID = document.getElementById("searchInputID");
-
+var timer1 = 500;
 if(screen.width <=800) {
     cityButton.classList.add("mobSearch1");
     searchInputID.classList.add("mobSearch2");
@@ -777,19 +788,21 @@ if(screen.width <=800) {
             cityButton.style.marginTop = "0px";
         });
     }
-    setInterval(()=>{
+    var itv1 = setInterval(()=>{
         console.log("hello");
+        //when on seocnd page, and when clicked it should be 0, when unclicked it should be -40, issue is that interval just keeps restting.
         if(onSecondPage)
-    {
-        cityButton.style.marginTop = "0px";
-        if(screen.width <= 434)
         {
-            console.log("worked");
-            cityButton.style.cursor = "pointer";
             cityButton.style.marginTop = "-40px";
+            if(screen.width <= 434)
+            {
+                console.log("worked");
+                cityButton.style.cursor = "pointer";
+                cityButton.style.marginTop = "-40px";
+            }
+            clearInterval(itv1);
         }
-    }
-    },500)
+    },timer1)
     
     if(screen.width <= 632){
         console.log("under 632");
