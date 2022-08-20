@@ -582,7 +582,12 @@ function search() {
 
     })
 
-    .catch(err => console.log(err));
+
+    .catch(err => {
+        console.log(err);
+        alert('"' + inputValue.value + '"' + " is not a valid city, please check for spelling and try again")
+    });
+    // .catch(err => console.log(err));
 
     
 
