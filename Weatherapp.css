@@ -54,7 +54,8 @@ body {
 
 #title {
   font-size: 30px;
-  color: #ccc;
+  /* color: #ccc; */
+  color: rgb(226 226 226);
   background: rgba(110, 110, 110, 00.25);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
