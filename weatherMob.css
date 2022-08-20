@@ -8,6 +8,7 @@
   }
 
   /* #searchBox {
+    margin-top: -70px;
   } */
 
   /* .searchInput,
@@ -100,7 +101,8 @@
   }
   .arrow {
     left: 50%;
-    top: 50%;
+    /* top: 50%; */
+    top: 60%;
   }
 }
 
