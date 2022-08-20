@@ -135,7 +135,7 @@ function search() {
     speciForecast.style.display = "inline-flex";
     if(screen.width <=800)
     {
-        outerBox.style.marginTop = "25px";
+        outerBox.style.marginTop = "10px";
         searchBox.style.marginTop = "-120px";
         // 85
         // 70
@@ -304,7 +304,8 @@ function search() {
         }
         else
         {
-            fixNum = parseInt(localTime.substr(0,2)) + 1;
+            // fixNum = parseInt(localTime.substr(0,2)) + 1;
+            fixNum = parseInt(localTime.substr(0,2));
         }
         
         console.log("fixNum is " + fixNum);

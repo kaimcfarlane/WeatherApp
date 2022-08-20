@@ -12,9 +12,13 @@
     margin-bottom: 15px;
   }
 
-  #contrast {
-    margin-bottom: 40px;
+  #contrastSwitch {
+    margin-top: -15px;
   }
+
+  /* #contrast {
+    margin-bottom: 40px;
+  } */
 
   #container {
     overflow: inherit;
