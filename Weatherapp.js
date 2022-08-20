@@ -135,8 +135,10 @@ function search() {
     speciForecast.style.display = "inline-flex";
     if(screen.width <=800)
     {
-        outerBox.style.marginTop = "85px";
-        searchBox.style.marginTop = "-70px";
+        outerBox.style.marginTop = "65px";
+        searchBox.style.marginTop = "-90px";
+        // 85
+        // 70
     }
 
     for(var ind=0;ind<7;ind++)
