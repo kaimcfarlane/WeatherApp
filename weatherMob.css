@@ -1,5 +1,123 @@
-@media (max-width: 450px) {
+@media (max-width: 800px) {
+  #outerBox {
+    width: 90%;
+    margin-top: 50px;
+  }
+  #buttonTitle {
+    font-size: 26px;
+  }
+
+  /* #searchBox {
+  } */
+
+  /* .searchInput,
+  #cityButton 
+
+  .searchButton  */
+
+  .mobSearch1 {
+    cursor: pointer;
+
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+
+    background: white;
+    color: #2f3640;
+  }
+
+  .mobSearch2 {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+
+    /* bottom may not be needed */
+    width: 240px;
+    padding: 0 6px;
+  }
+
+  /* @keyframes hover1 {
+    0% {
+      border: none;
+      background: none;
+      outline: none;
+      float: left;
+      padding: 0;
+      color: white;
+      font-size: 16px;
+      transition: 0.4s;
+      line-height: 40px;
+      width: 0px;
+    }
+    100% {
+      width: 150px;
+      padding: 0 6px;
+    }
+  } */
+
+  /* @keyframes hover2 {
+    0% {
+      color: white;
+      float: right;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #2f3640;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.4s;
+    }
+    100% {
+      background: white;
+      color: #2f3640;
+    }
+  } */
+
+  #temperature {
+    font-size: 100px;
+  }
+  #weatherInfo {
+    margin-left: -12px;
+  }
+  #location,
+  #icon,
+  #time,
+  #report {
+    font-size: 30px;
+  }
+  .arrow {
+    left: 50%;
+    top: 50%;
+  }
 }
+
+@media (max-width: 450px) {
+  #speciForecast {
+    display: none;
+    margin-top: 98px;
+    font-size: 14px;
+  }
+}
+/* 443px */
+/* @media (max-width: 623px) {
+  #cityButton {
+    cursor: pointer;
+    margin-top: -40px;
+  }
+} */
 /* Main title needs to be smaller
 could maybe just always have active class for search bar
 The search Thingy needs to be changed maybe some type of display none because the hover animation doesn't work 

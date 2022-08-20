@@ -13,6 +13,7 @@ var weatherInfo = document.getElementById("weatherInfo");
 var timeText = document.getElementById("time");
 var inconHtml = document.getElementById("icon");
 var report = document.getElementById("report");
+
 var location1 = document.getElementById("location");
 var temp = document.getElementById("temperature");
 var title = document.getElementById("title");
@@ -36,7 +37,7 @@ var windScope = "";
 var windCustomScope = "";
 var isMetric = true;
 
-const cityButton = document.querySelector(".cityButton")
+const cityButton = document.getElementById("cityButton");
 // const inputValue = document.querySelector(".inputValue")
 const bodycolor = document.querySelector(".bodyStyle")
 
@@ -50,6 +51,9 @@ var f=13;
 var g=18;
 var h=19;
 var j=21;
+
+//for mobile search bar view
+var onSecondPage = false;
 
 //converts kelvin to farenheit
 function kTof(kelvin){
@@ -112,6 +116,7 @@ function search() {
     if(screen.height <= 1000) {
         outerBox.style.marginTop = "180px";
     } 
+    onSecondPage = true;
     title.innerText = " ";
     arrow.style.display = "flex";
     //make buttonTitle display none
@@ -759,3 +764,40 @@ toggle.addEventListener('click', function() {
 if(screen.height <= 1000) {
     outerBox.style.marginTop = "200px";
 }
+
+var searchInputID = document.getElementById("searchInputID");
+
+if(screen.width <=800) {
+    cityButton.classList.add("mobSearch1");
+    searchInputID.classList.add("mobSearch2");
+    console.log("yea");
+    searchInputID.addEventListener("click", ()=>{
+        cityButton.style.cursor = "pointer";
+        cityButton.style.marginTop = "0px";
+    });
+    setInterval(()=>{
+        console.log("hello");
+        if(onSecondPage)
+    {
+        cityButton.style.marginTop = "0px";
+        if(screen.width <= 434)
+        {
+            console.log("worked");
+            cityButton.style.cursor = "pointer";
+            cityButton.style.marginTop = "-40px";
+        }
+    }
+    },500)
+    
+    if(screen.width <= 632){
+        console.log("under 632");
+            cityButton.style.cursor = "pointer";
+            cityButton.style.marginTop = "-40px";
+    }
+}
+
+
+// var searchInputID = document.getElementById("searchInputID");
+// setTimeout(() =>{
+//     searchInputID.style.animationPlayState = "paused";
+// },1000)
