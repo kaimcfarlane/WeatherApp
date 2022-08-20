@@ -9,7 +9,11 @@
 
   .settingSubTitle {
     padding-bottom: 0px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
+  }
+
+  #contrast {
+    margin-bottom: 40px;
   }
 
   #container {
