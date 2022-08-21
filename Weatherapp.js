@@ -802,12 +802,12 @@ if(screen.width <=800) {
         //when on seocnd page, and when clicked it should be 0, when unclicked it should be -40, issue is that interval just keeps restting.
         if(onSecondPage)
         {
-            cityButton.style.marginTop = "-40px";
+            cityButton.style.marginTop = "-45px";
             if(screen.width <= 434)
             {
                 console.log("worked");
                 cityButton.style.cursor = "pointer";
-                cityButton.style.marginTop = "-40px";
+                cityButton.style.marginTop = "-45px";
             }
             clearInterval(itv1);
         }
@@ -816,7 +816,7 @@ if(screen.width <=800) {
     if(screen.width <= 632){
         console.log("under 632");
             cityButton.style.cursor = "pointer";
-            cityButton.style.marginTop = "-40px";
+            cityButton.style.marginTop = "-45px";
     }
 }
 
