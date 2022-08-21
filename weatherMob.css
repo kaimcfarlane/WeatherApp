@@ -126,6 +126,9 @@
     width: min-content;
     padding: 0;
   }
+  #cityButton {
+    margin-top: -45px;
+  }
 }
 
 @media (max-width: 450px) {
