@@ -75,7 +75,7 @@ function expOption() {
     if(exp)
     {
         setTimeout(()=>{
-            cityButton.style.marginTop = "-40px";
+            cityButton.style.marginTop = "-44px";
         },300)
         if(isDark)
         {
