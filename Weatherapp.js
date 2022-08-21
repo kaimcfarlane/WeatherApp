@@ -136,7 +136,7 @@ function search() {
     if(screen.width <=800)
     {
         outerBox.style.marginTop = "10px";
-        searchBox.style.marginTop = "-108px";
+        searchBox.style.marginTop = "-100px";
         // 85
         // 70
     }
