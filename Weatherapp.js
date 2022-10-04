@@ -74,9 +74,11 @@ function expOption() {
 
     if(exp)
     {
-        setTimeout(()=>{
-            cityButton.style.marginTop = "-44px";
-        },300)
+        if(screen.width <= 800){
+            setTimeout(()=>{
+                cityButton.style.marginTop = "-44px";
+            },300)
+        }
         if(isDark)
         {
             settingsBox.style.backgroundColor = "rgb(0 0 0 / 49%)";
@@ -103,9 +105,11 @@ function expOption() {
     }
     else
     {
-        setTimeout(()=>{
-            cityButton.style.marginTop = "0px";
-        },900)
+        if(screen.width<=800){
+            setTimeout(()=>{
+                cityButton.style.marginTop = "0px";
+            },900)
+        }
         outerBox.classList.add("activeBox");
         outerBox.classList.remove("inactiveBox");
         searchBox.classList.add("activeSearch");
