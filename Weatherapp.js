@@ -511,13 +511,13 @@ function search() {
     {
         imgIndex = 10;
         document.body.style.animation = "fadeIn 3s";
-        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[c] + '"' + ')';
-        c++;
-        if (c>6)
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[d] + '"' + ')';
+        d++;
+        if (d>6)
         {
-            c=5;
+            d=5;
         }
-        if(c == 6)
+        if(d == 6)
         {
             weatherInfo.style.backgroundColor = "#00000030";
             weatherInfo.style.borderRadius = "20px";
@@ -530,11 +530,11 @@ function search() {
     {
         imgIndex = 11;
         document.body.style.animation = "fadeIn 3s";
-        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[d] + '"' + ')';
-        d++;
-        if (d>9)
+        document.body.style.backgroundImage = 'url(' + '"' + dekstopBG[c] + '"' + ')';
+        c++;
+        if (c>9)
         {
-            d=7;
+            c=7;
         }
         setTimeout(() =>{
             document.body.style.animation = "l";
