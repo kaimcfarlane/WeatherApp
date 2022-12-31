@@ -5,7 +5,7 @@
  This is a weather application that displays the climate info within a city. This includes data, namely forecast, temperature, and local time. I've also added some features including a dark/light mode, a metric/customary setting, and the ability to turn icons into words. This App was built using the OpenWeatherAPI, IPGeolocation API, and CSS/HTML/JavaScript.
  
 🚀 Test Live: https://kaimcfarlane.github.io/WeatherApp/
-1411
+
 <div display="inline-flex">
 <img width="500" alt="Screen Shot 2022-12-31 at 6 12 44 PM" src="https://user-images.githubusercontent.com/87865378/210157349-a077f23b-ef61-49b6-b98c-b55c33fa377d.png">
 <img width="500" alt="Screen Shot 2022-12-31 at 6 13 10 PM" src="https://user-images.githubusercontent.com/87865378/210157350-e81a903e-98b1-432b-84a6-359590bcd218.png">
