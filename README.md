@@ -7,6 +7,6 @@
 🚀 Test Live: https://kaimcfarlane.github.io/WeatherApp/
 
 <div display="inline-flex">
-<img width="300" alt="Screen Shot 2022-12-31 at 6 12 44 PM" src="https://user-images.githubusercontent.com/87865378/210157349-a077f23b-ef61-49b6-b98c-b55c33fa377d.png">
-<img width="300" alt="Screen Shot 2022-12-31 at 6 13 10 PM" src="https://user-images.githubusercontent.com/87865378/210157350-e81a903e-98b1-432b-84a6-359590bcd218.png">
+<img width="400" alt="Screen Shot 2022-12-31 at 6 12 44 PM" src="https://user-images.githubusercontent.com/87865378/210157349-a077f23b-ef61-49b6-b98c-b55c33fa377d.png">
+<img width="400" alt="Screen Shot 2022-12-31 at 6 13 10 PM" src="https://user-images.githubusercontent.com/87865378/210157350-e81a903e-98b1-432b-84a6-359590bcd218.png">
 </div>
